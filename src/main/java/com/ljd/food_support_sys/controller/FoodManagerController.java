@@ -113,7 +113,7 @@ public class FoodManagerController {
         Map<String,Object> result=new HashMap<>();
         if (i==0){
             result.put("code",200);
-            result.put("data",i);
+            result.put("data",foodManager.getFoodManagerId());
             result.put("msg","已删除");
             return result;
         }else {
