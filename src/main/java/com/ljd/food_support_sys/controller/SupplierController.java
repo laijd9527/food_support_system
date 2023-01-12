@@ -83,7 +83,7 @@ public class SupplierController {
         int i = supplierMapper.insert(supplier);
         if(i>=1){
             result.put("code",200);
-            result.put("data",i);
+            result.put("data",supplier);
             result.put("msg","添加成功");
             return result;
         }else{
@@ -100,7 +100,7 @@ public class SupplierController {
         int i = supplierMapper.updateById(supplier);
         if(i>=1){
             result.put("code",200);
-            result.put("data",i);
+            result.put("data",supplier);
             result.put("msg","修改成功");
             return result;
         }else{
@@ -117,7 +117,7 @@ public class SupplierController {
         Map<String,Object> result=new HashMap<>();
         int i = supplierMapper.deleteById(supplier.getSupplierId());
         result.put("code",200);
-        result.put("data",i);
+        result.put("data",supplier.getSupplierId());
         result.put("msg","已删除");
         return result;
     }
