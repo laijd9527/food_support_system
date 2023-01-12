@@ -116,7 +116,7 @@ public class UserController {
         int i = userMapper.deleteById(user.getUserId());
         if (i==0){
             result.put("code",200);
-            result.put("data",i);
+            result.put("data",user.getUserId());
             result.put("msg","已删除");
             return result;
         }else {
