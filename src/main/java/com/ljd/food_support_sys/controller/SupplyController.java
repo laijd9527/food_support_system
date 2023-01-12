@@ -21,7 +21,7 @@ public class SupplyController {
     SupplyMapper supplyMapper;
 
 
-    //查询所有供应商信息（未测试）
+    //查询所有供应商信息（已测）
     @RequestMapping("getAllSupply")
     public Map getAllSupply(){
         Map<String,Object> result=new HashMap<>();
@@ -38,7 +38,7 @@ public class SupplyController {
             return result;
         }
     }
-    //根据供应商Id查询单条供应商信息（未测试）
+    //根据供应商Id查询单条供应商信息（已测）
     @RequestMapping("getSupplyById")
     public Map getSupplyById(@RequestBody Supply supply){
         Map<String,Object> result=new HashMap<>();
@@ -56,7 +56,7 @@ public class SupplyController {
         }
 
     }
-    //查询供应商数量（未测试）
+    //查询供应商数量（已测）
     @RequestMapping("getSupplyCount")
     public Map getSupplyCount(){
         Map<String,Object> result=new HashMap<>();
@@ -73,14 +73,14 @@ public class SupplyController {
             return result;
         }
     }
-    //新增供应商（未测试）
+    //新增供应商（已测）
     @RequestMapping("addSupply")
     public Map addSupply(@RequestBody Supply supply){
         Map<String,Object> result=new HashMap<>();
         int i = supplyMapper.insert(supply);
         if(i>=1){
             result.put("code",200);
-            result.put("data","");
+            result.put("data",supply);
             result.put("msg","添加成功");
             return result;
         }else{
@@ -90,19 +90,19 @@ public class SupplyController {
             return result;
         }
     }
-    //修改供应商信息（根据id）（未测试）
+    //修改供应商信息（根据id）（已测）
     @RequestMapping("updateSupplyById")
-    public Map updateSupply(@RequestBody Supply supply){
+    public Map updateSupplyById(@RequestBody Supply supply){
         Map<String,Object> result=new HashMap<>();
         int i = supplyMapper.updateById(supply);
         if(i>=1){
             result.put("code",200);
-            result.put("data",i);
+            result.put("data",supply);
             result.put("msg","修改成功");
             return result;
         }else{
             result.put("code",400);
-            result.put("data","");
+            result.put("data"," ");
             result.put("msg","修改失败");
             return result;
         }
@@ -110,11 +110,11 @@ public class SupplyController {
     }
     //删除供应商（根据id）（未测试）
     @RequestMapping("deleteSupplyById")
-    public Map deleteSupply(@RequestBody Supply supply){
+    public Map deleteSupplyById(@RequestBody Supply supply){
         Map<String,Object> result=new HashMap<>();
         int i = supplyMapper.deleteById(supply.getSupplyId());
         result.put("code",200);
-        result.put("data",i);
+        result.put("data",supply.getSupplyId());
         result.put("msg","已删除");
         return result;
     }
