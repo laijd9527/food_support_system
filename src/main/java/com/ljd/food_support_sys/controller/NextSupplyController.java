@@ -99,7 +99,7 @@ public class NextSupplyController {
         int i = nextSupplyMapper.updateById(nextSupply);
         if ( i == 1 ){
             result.put("code",200);
-            result.put("data",i);
+            result.put("data",nextSupply);
             result.put("msg","已修改下次供货信息");
             return result;
         }else {
@@ -110,20 +110,20 @@ public class NextSupplyController {
         }
 
     }
-    //删除下次供货记录（根据id）（未测试）
+    //删除下次供货记录（根据id）（已测）
     @RequestMapping("deleteNextSupplyById")
     public Map deleteNextSupplyById(@RequestBody NextSupply nextSupply){
         Map<String,Object> result=new HashMap<>();
         int i = nextSupplyMapper.deleteById(nextSupply.getNextSupplyId());
         if ( i == 1 ){
+            result.put("code",200);
+            result.put("data",nextSupply.getNextSupplyId());
+            result.put("msg","删除成功");
+            return result;
+        }else {
             result.put("code",400);
             result.put("data"," ");
             result.put("msg","删除信息失败");
-            return result;
-        }else {
-            result.put("code",200);
-            result.put("data",i);
-            result.put("msg","删除成功");
             return result;
         }
 
