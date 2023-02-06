@@ -55,15 +55,16 @@ public class FoodController {
     @RequestMapping("getFoodCount")
     public Map getFoodCount(){
         Map<String,Object> result=new HashMap<>();
-        List<Food> foods =foodMapper.selectList(null);
-        if (foods.isEmpty()){
+//        List<Food> foods =foodMapper.selectList(null);
+        Integer i = foodMapper.selectCount(null);
+        if (i==0){
             result.put("code",400);
             result.put("data"," ");
             result.put("msg","查询结果异常");
             return result;
         }else {
             result.put("code",200);
-            result.put("data",foods.size());
+            result.put("data",i);
             result.put("msg","查询成功");
             return result;
         }

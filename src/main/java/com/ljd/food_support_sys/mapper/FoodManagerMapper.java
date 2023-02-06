@@ -12,5 +12,4 @@ public interface FoodManagerMapper extends BaseMapper<FoodManager> {
 //    @Select("selece * from food_manager where food_manager_id=#{foodManagerId}")
 //    int selectManagerById(FoodManager foodManager);
 
-
 }
