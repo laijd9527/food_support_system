@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface UserMapper extends BaseMapper<User> {
@@ -18,6 +20,9 @@ public interface UserMapper extends BaseMapper<User> {
     //判断用户类型
     @Select("select user_type from `user` u where user_name=#{userName}")
     User userType(@Param("userName")String userName);
+
+    @Select("select user_type from user where user_id=#{userId}")
+    List<User> getUserRole(Integer userId);
 
 //    User selectOne(@Param("realName") String realName);
 

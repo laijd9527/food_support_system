@@ -111,7 +111,7 @@ public class UserController {
 
     }
     //添加用户信息（已测）
-    @RequestMapping("addUser")
+    @RequestMapping("/addUser")
     public Map addUser(@RequestBody User user){
         int i = userMapper.insert(user);
         Map<String,Object> result=new HashMap<>();
@@ -157,17 +157,20 @@ public class UserController {
         }else {
             result.put("code",400);
             result.put("data"," ");
-            result.put("msg","已删除");
+            result.put("msg","出错了！");
             return result;
         }
     }
+//
 //    @RequestMapping("getUserRole")
-//    public Map getUserRole(@RequestBody User user){
-//        Map<String,Object> result=new HashMap<>();
+//    public List<User> getUserRole(Integer userId){
 //        UserMapper mapper = this.userMapper;
-//        mapper.getUserRole(user.getUserId());
-//        result.put("data",mapper);
-//        return result;
+//        if (userId!=null){
+//            return mapper.getUserRole(userId);
+//        }else {
+//            return mapper.getUserRole(userId);
+//        }
+//        return mapper.getUserRole(userId);
 //    }
 
 }

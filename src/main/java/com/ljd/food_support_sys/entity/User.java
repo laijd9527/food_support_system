@@ -1,11 +1,12 @@
 package com.ljd.food_support_sys.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 @Data
 public class User {
-    @TableId("user_id")
+    @TableId(value = "user_id",type = IdType.INPUT)
     private Integer userId;
     private String userName;
     private String password;

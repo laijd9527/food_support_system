@@ -22,7 +22,7 @@ public class SupplierController {
     @Autowired
     SupplierMapper supplierMapper;
 
-    //查询所有供货人信息（未测试）
+    //查询所有供货人信息（已测）
     @RequestMapping("getAllSupplier")
     public Map getAllSupplier(){
         Map<String,Object> result=new HashMap<>();
@@ -93,7 +93,7 @@ public class SupplierController {
             return result;
         }
     }
-    //修改供货人（根据id）（未测试）
+    //修改供货人（根据id）（已测）
     @RequestMapping("updateSupplier")
     public Map updateSupplier(@RequestBody Supplier supplier){
         Map<String,Object> result=new HashMap<>();

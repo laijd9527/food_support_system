@@ -16,7 +16,7 @@ public class FoodManager {
     private String managerPhonenum;
     private Integer userId;
     private String userType;
-    @JsonFormat(locale = "zh",timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(locale = "zh",timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     private String remarks;
 
