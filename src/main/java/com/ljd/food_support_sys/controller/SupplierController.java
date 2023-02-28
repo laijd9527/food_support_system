@@ -111,15 +111,22 @@ public class SupplierController {
         }
 
     }
-    //删除供货人（根据id）（未测试）
+    //删除供货人（根据id）（已测）
     @RequestMapping("deleteSupplier")
     public Map deleteSupplier(@RequestBody Supplier supplier){
         Map<String,Object> result=new HashMap<>();
         int i = supplierMapper.deleteById(supplier.getSupplierId());
-        result.put("code",200);
-        result.put("data",supplier.getSupplierId());
-        result.put("msg","已删除");
-        return result;
+        if (i==0){
+            result.put("code",200);
+            result.put("data",supplier.getSupplierId());
+            result.put("msg","已删除");
+            return result;
+        }else {
+            result.put("code",400);
+            result.put("data"," ");
+            result.put("msg","出错了！");
+            return result;
+        }
     }
 
 }

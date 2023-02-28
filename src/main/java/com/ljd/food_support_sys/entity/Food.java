@@ -30,7 +30,7 @@ public class Food {
     //供货商电话
     private String supplyPhonenum;
     //供货日期
-    @JsonFormat(locale = "zh",timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(locale = "zh",timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date supplyDate;
     //供货人姓名
     private String supplierName;

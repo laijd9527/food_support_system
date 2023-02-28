@@ -113,10 +113,17 @@ public class SupplyController {
     public Map deleteSupplyById(@RequestBody Supply supply){
         Map<String,Object> result=new HashMap<>();
         int i = supplyMapper.deleteById(supply.getSupplyId());
-        result.put("code",200);
-        result.put("data",supply.getSupplyId());
-        result.put("msg","已删除");
-        return result;
+        if (i==0){
+            result.put("code",400);
+            result.put("data"," ");
+            result.put("msg","出错了！");
+            return result;
+        }else {
+            result.put("code",200);
+            result.put("data",supply.getSupplyId());
+            result.put("msg","已删除");
+            return result;
+        }
     }
 
 }

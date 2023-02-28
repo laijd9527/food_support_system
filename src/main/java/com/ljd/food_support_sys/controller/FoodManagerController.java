@@ -2,12 +2,14 @@ package com.ljd.food_support_sys.controller;
 
 import com.ljd.food_support_sys.entity.FoodManager;
 import com.ljd.food_support_sys.mapper.FoodManagerMapper;
+import netscape.javascript.JSObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,11 +91,31 @@ public class FoodManagerController {
         }
 
     }
+
+    @RequestMapping("addManager1")
+    public Map addManager1(@RequestBody FoodManager foodManager){
+        Map<String,Object> result=new HashMap<>();
+        int i = foodManagerMapper.insertFoodManager(foodManager);
+        if(i>=1){
+            result.put("code",200);
+            result.put("data",foodManager);
+            result.put("msg","添加成功");
+            return result;
+        }else{
+            result.put("code",400);
+            result.put("data","");
+            result.put("msg","添加失败");
+            return result;
+        }
+
+    }
+
     //修改食材管理员信息（已测）
     @RequestMapping("updateManagerById")
     public Map updateManagerById(@RequestBody FoodManager foodManager){
         Map<String,Object> result=new HashMap<>();
         int i = foodManagerMapper.updateById(foodManager);
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         if(i>=1){
             result.put("code",200);
             result.put("data",foodManager);

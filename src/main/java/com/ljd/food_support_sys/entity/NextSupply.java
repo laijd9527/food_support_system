@@ -10,7 +10,7 @@ import java.util.Date;
 public class NextSupply {
     @TableId("next_supply_id")
     private Integer nextSupplyId;
-    @JsonFormat(locale = "zh",timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(locale = "zh",timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date nextDate;
     private String supplyName;
     private String supplyAddress;

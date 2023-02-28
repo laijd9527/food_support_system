@@ -28,9 +28,7 @@ public class UserController {
         User result=userMapper.login(user.getUserName(),user.getPassword());
         if (result==null){
             throw new RuntimeException("用户名或密码错误！");
-        } //else if(result!=null){
-//            userMapper.userType(user.getUserName());
-//        }
+        }
         return result;
     }
 
